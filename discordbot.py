@@ -11,14 +11,6 @@ async def on_command_error(ctx, error):
     error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
     await ctx.send(error_msg)
     
-@bot.event
-await client.change_presence(activity=discord.Game(name='my game'))
-
-# or, for watching:
-activity = discord.Activity(name='my activity', type=discord.ActivityType.watching)
-await client.change_presence(activity=activity)
-
-
 @bot.command()
 async def ping(ctx):
     await ctx.send('pong')
