@@ -25,13 +25,13 @@ async def add(ctx, a: int, b: int):
 async def multiply(ctx, a: int, b: int):
     await ctx.send(a*b)
     
-@bot.event
-async def on_message(message):
-    if message.content.startswith("しかちゃん"):
-        if client.user != message.author:
-            m = "ｶﾜ(・∀・)ｲｲ!!"
-            await message.channel.send(m)
-    await bot.process_commands(message)
+@commands.Cog.listener()
+    async def on_message(self, message):
+        if message.author.bot:
+            return
+
+        if message.content == 'こんにちは':
+            await message.channel.send('こんにちは')
 
 bot.run(token)
 
