@@ -2,6 +2,12 @@ from discord.ext import commands
 import os
 import traceback
 
+await client.change_presence(activity=discord.Game(name='my game'))
+
+# or, for watching:
+activity = discord.Activity(name='my activity', type=discord.ActivityType.watching)
+await client.change_presence(activity=activity)
+
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 
