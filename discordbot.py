@@ -25,7 +25,7 @@ async def add(ctx, a: int, b: int):
 async def multiply(ctx, a: int, b: int):
     await ctx.send(a*b)
     
-@bot.command()   
+@bot.event
 async def on_message(message):
     if message.content.startswith("しかちゃん"):
         if client.user != message.author:
