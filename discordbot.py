@@ -27,13 +27,11 @@ async def multiply(ctx, a: int, b: int):
     
 @bot.command()   
 async def on_message(message):
-    # メッセージ送信者がBotだった場合は無視する
-    if message.author.bot:
-        return
-    # 「/neko」と発言したら「にゃーん」が返る処理
-    if message.content == 'ねこ':
-        await message.channel.send('にゃーん')    
-        await bot.process_commands(message)
-        
+    if message.content.startswith("しかちゃん"):
+        if client.user != message.author:
+            m = "ｶﾜ(・∀・)ｲｲ!!"
+            await message.channel.send(m)
+    await bot.process_commands(message)
+
 bot.run(token)
 
