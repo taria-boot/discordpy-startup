@@ -24,14 +24,6 @@ async def add(ctx, a: int, b: int):
 @bot.command()
 async def multiply(ctx, a: int, b: int):
     await ctx.send(a*b)
-    
-@commands.Cog.listener()
-    async def on_message(self, message):
-        if message.author.bot:
-            return
-
-        if message.content == 'こんにちは':
-            await message.channel.send('こんにちは')
 
 bot.run(token)
 
