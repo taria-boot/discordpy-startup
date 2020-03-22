@@ -1,7 +1,6 @@
 from discord.ext import commands
 import os
 import traceback
-import random
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
@@ -23,12 +22,7 @@ async def add(ctx, a: int, b: int):
     
 @bot.command()
 async def multiply(ctx, a: int, b: int):
-    await ctx.send(a*b)
-
-@bot.command(description='For when you wanna settle the score some other way')
-async def choose(*choices : str):
-    """Chooses between multiple choices."""
-    await bot.say(random.choice(choices))    
+    await ctx.send(a*b)  
     
 @bot.command()
 async def joined(member : discord.Member):
