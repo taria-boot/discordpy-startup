@@ -35,5 +35,9 @@ async def waru(ctx, a: int, b: int):
 async def beki(ctx, a: int, b: int):
     await ctx.send(a**b)      
         
+@bot.command()
+async def kai(ctx, a: int):
+    await ctx.send(math.factorial(a)))              
+        
 bot.run(token)
 
