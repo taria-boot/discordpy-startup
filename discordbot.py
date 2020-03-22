@@ -14,6 +14,11 @@ async def on_command_error(ctx, error):
 @bot.command()
 async def dog(ctx):
     await ctx.send(f'{ctx.author.mention} （∪＾ω＾） わんわんお！')
+
+@bot.commands()
+async def happy(ctx):
+    await ctx.send("https://media1.tenor.com/images/3f023e332011606fa6f68e38f24c9155/tenor.gif?itemid=15087630")    
+            
     
 @bot.command()
 async def ping(ctx):
@@ -39,9 +44,5 @@ async def waru(ctx, a: float, b: float):
 async def beki(ctx, a: float, b: int):
     await ctx.send(a**b)      
     
-@bot.commands()
-async def happy(ctx):
-    await ctx.send("https://media1.tenor.com/images/3f023e332011606fa6f68e38f24c9155/tenor.gif?itemid=15087630")    
-        
 bot.run(token)
 
