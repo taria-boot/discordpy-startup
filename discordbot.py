@@ -10,6 +10,9 @@ async def on_command_error(ctx, error):
     orig_error = getattr(error, "original", error)
     error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
     await ctx.send(error_msg)       
+    
+activity = discord.Game(name="わん")
+    await client.change_presence(status=discord.Status.idle, activity=activity)    
         
 @bot.command()
 async def dog(ctx):
