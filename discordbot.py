@@ -40,7 +40,7 @@ async def beki(ctx, a: float, b: int):
     await ctx.send(a**b)      
     
 @bot.commands()
-async def イエーイ(ctx):
+async def happy(ctx):
     await ctx.send("https://media1.tenor.com/images/3f023e332011606fa6f68e38f24c9155/tenor.gif?itemid=15087630")    
         
 bot.run(token)
