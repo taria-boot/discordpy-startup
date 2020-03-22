@@ -20,7 +20,7 @@ async def tasu(ctx, a: int, b: int):
     await ctx.send(a+b)
     
 @bot.command()
-async def kakeru(ctx, a: int, b: int):
+async def kakeru(ctx, a: float, b: float):
     await ctx.send(a*b)  
     
 @bot.command()
