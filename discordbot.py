@@ -37,7 +37,7 @@ async def beki(ctx, a: int, b: int):
         
 @bot.command()
 async def kai(ctx, a: int):
-    await ctx.send(math.factorial(a)) 
+    await ctx.send(factorial.(a)) 
         
 bot.run(token)
 
