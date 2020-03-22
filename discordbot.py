@@ -35,9 +35,16 @@ async def waru(ctx, a: float, b: float):
 async def beki(ctx, a: float, b: int):
     await ctx.send(a**b)      
         
-@bot.command()
-async def kai(ctx, a: int):
-    await ctx.send(factorial(a)) 
+@bot.event
+async def on_message(message):
+    global current_ans
+    if message.author.bot: # メッセージの送信者がBotなら何もしない
+        pass 
+    elif current_ans == '':
+        await bot.change_presence(activity=discord.Game("（∪＾ω＾） わんわんお！"))
+    else:
+        await bot.change_presence(activity=discord.Game("ぅゎﾀﾘぃっょぃ"))
+    await bot.process_commands(message) # 忘れないように        
         
 bot.run(token)
 
