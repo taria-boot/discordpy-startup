@@ -16,13 +16,24 @@ async def ping(ctx):
     await ctx.send('pong')
 
 @bot.command()
-async def add(ctx, a: int, b: int):
+async def tasu(ctx, a: int, b: int):
     await ctx.send(a+b)
     
 @bot.command()
-async def multiply(ctx, a: int, b: int):
+async def kakeru(ctx, a: int, b: int):
     await ctx.send(a*b)  
     
+@bot.command()
+async def hiku(ctx, a: int, b: int):
+    await ctx.send(a-b)  
     
+@bot.command()
+async def waru(ctx, a: int, b: int):
+    await ctx.send(a/b)      
+    
+@bot.command()
+async def beki(ctx, a: int, b: int):
+    await ctx.send(a**b)      
+        
 bot.run(token)
 
