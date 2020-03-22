@@ -1,15 +1,22 @@
 from discord.ext import commands
 import os
 import traceback
+import random
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
+
 
 @bot.event
 async def on_command_error(ctx, error):
     orig_error = getattr(error, "original", error)
     error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
     await ctx.send(error_msg)
+    
+async def on_message(message):
+    #処理
+    await bot.process_commands(message)
+    
     
 @bot.command()
 async def ping(ctx):
@@ -23,5 +30,16 @@ async def add(ctx, a: int, b: int):
 async def multiply(ctx, a: int, b: int):
     await ctx.send(a*b)
 
+@bot.command(description='For when you wanna settle the score some other way')
+async def choose(*choices : str):
+    """Chooses between multiple choices."""
+    await bot.say(random.choice(choices))    
+    
+@bot.command()
+async def joined(member : discord.Member):
+    """Says when a member joined."""
+    await bot.say('{0.name} joined in {0.joined_at}'.format(member))
+    
+    
 bot.run(token)
 
