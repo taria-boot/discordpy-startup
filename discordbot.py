@@ -11,10 +11,10 @@ async def on_command_error(ctx, error):
     error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
     await ctx.send(error_msg)       
     
-@bot.event 
-activity = discord.Activity(name='わん', type=discord.ActivityType.watching)
-     await client.change_presence(status=discord.Status.idle, activity=activity)    
-    
+@bot.event   
+activity = discord.Game(name="Just")
+    await client.change_presence(status=discord.Status.idle, activity=activity)
+
 @bot.command()
 async def dog(ctx):
     await ctx.send(f'{ctx.author.mention} （∪＾ω＾） わんわんお！')
