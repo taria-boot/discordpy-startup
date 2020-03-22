@@ -15,10 +15,6 @@ async def on_command_error(ctx, error):
 async def dog(ctx):
     await ctx.send(f'{ctx.author.mention} （∪＾ω＾） わんわんお！')
 
-@bot.commands()
-async def happy(ctx):
-    await ctx.send(f'{ctx.author.mention} https://media1.tenor.com/images/3f023e332011606fa6f68e38f24c9155/tenor.gif?itemid=15087630')   
-            
 @bot.command()
 async def ping(ctx):
     await ctx.send('pong')
