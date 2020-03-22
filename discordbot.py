@@ -13,11 +13,6 @@ async def on_command_error(ctx, error):
     error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
     await ctx.send(error_msg)
     
-async def on_message(message):
-    #処理
-    await bot.process_commands(message)
-    
-    
 @bot.command()
 async def ping(ctx):
     await ctx.send('pong')
