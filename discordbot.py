@@ -11,6 +11,17 @@ async def on_command_error(ctx, error):
     error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
     await ctx.send(error_msg)
     
+async def on_message(message):
+    global current_ans
+    if message.author.bot: # メッセージの送信者がBotなら何もしない
+        pass 
+    elif current_ans == '':
+        await bot.change_presence(activity=discord.Game("（∪＾ω＾） わんわんお！"))
+    else:
+        await bot.change_presence(activity=discord.Game("ぅゎﾀﾘぃっょぃ"))
+    await bot.process_commands(message) # 忘れないように        
+        
+    
 @bot.command()
 async def ping(ctx):
     await ctx.send('pong')
@@ -34,17 +45,6 @@ async def waru(ctx, a: float, b: float):
 @bot.command()
 async def beki(ctx, a: float, b: int):
     await ctx.send(a**b)      
-        
-@bot.event
-async def on_message(message):
-    global current_ans
-    if message.author.bot: # メッセージの送信者がBotなら何もしない
-        pass 
-    elif current_ans == '':
-        await bot.change_presence(activity=discord.Game("（∪＾ω＾） わんわんお！"))
-    else:
-        await bot.change_presence(activity=discord.Game("ぅゎﾀﾘぃっょぃ"))
-    await bot.process_commands(message) # 忘れないように        
-        
+       
 bot.run(token)
 
