@@ -17,9 +17,8 @@ async def dog(ctx):
 
 @bot.commands()
 async def happy(ctx):
-    await ctx.send("https://media1.tenor.com/images/3f023e332011606fa6f68e38f24c9155/tenor.gif?itemid=15087630")    
+    await ctx.send(f'{ctx.author.mention} https://media1.tenor.com/images/3f023e332011606fa6f68e38f24c9155/tenor.gif?itemid=15087630')   
             
-    
 @bot.command()
 async def ping(ctx):
     await ctx.send('pong')
