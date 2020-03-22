@@ -6,15 +6,10 @@ bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 
 @bot.event
-async def on_message(message):
-    global current_ans
-    if message.author.bot: # メッセージの送信者がBotなら何もしない
-        pass 
-    elif current_ans == '':
-        await bot.change_presence(activity=discord.Game("（∪＾ω＾） わんわんお！"))
-    else:
-        await bot.change_presence(activity=discord.Game("ぅゎﾀﾘぃっょぃ"))
-    await bot.process_commands(message) # 忘れないように        
+async def on_command_error(ctx, error):
+    orig_error = getattr(error, "original", error)
+    error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
+    await ctx.send(error_msg)       
         
     
 @bot.command()
