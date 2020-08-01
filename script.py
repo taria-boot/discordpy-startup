@@ -230,4 +230,4 @@ async def on_message(message):
             embed.set_author(name="きゃら犬",url="https://twitter.com/caraint",icon_url="https://pbs.twimg.com/profile_images/1240186441189097474/CAW3naG3_400x400.jpg")    
             await message.channel.send(embed=embed)
 
-client.run('NjkwODUwODgzNjA4NzcyNjI4.XnXbBg.2SPOTNi-89rS2EMlL0JzksTaA3w')
+client.run('NjkwODUwODgzNjA4NzcyNjI4.XnXbBg.o9tKaEdPnIz1Y6Jf8_jbammujnA')
